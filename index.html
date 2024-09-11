@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 7 homework - AppSidebar</title>
+    <script src="javascript.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <button class="tooltip header__button-main-menu">
+        ☰
+        <span class="tooltiptext tooltip-menutext">Main menu</span>
+      </button>
+      <a href="." class="tooltip header__logo">
+        📬 Mail App
+        <span class="tooltiptext tooltip-logotext">Mail App</span>
+      </a>
+    </header>
+
+    <button class="button-new-email">
+      🖍
+      <span>Compose</span>
+    </button>
+
+    <app-sidebar-button text="Inbox" unreadCount="0" selected="true">
+      <slot slot="icon">📥</slot>
+    </app-sidebar-button>
+    <app-sidebar-button text="Starred" unreadCount="0">
+      <slot slot="icon">⭐️</slot>
+    </app-sidebar-button>
+    <app-sidebar-button text="Snoozed" unreadCount="0">
+      <slot slot="icon">🕓</slot>
+    </app-sidebar-button>
+    <app-sidebar-button text="Sent" unreadCount="0">
+      <slot slot="icon">➡️</slot>
+    </app-sidebar-button>
+    <app-sidebar-button text="Draft" unreadCount="1">
+      <slot slot="icon">📄</slot>
+    </app-sidebar-button>
+
+    <template id="app-sidebar-button">
+      <style>
+        /* Sidebar buttons */
+        .sidebar__button {
+          color: var(--dark-gray);
+          height: 30px;
+          width: 250px;
+          background: none;
+          border: none;
+          text-align: start;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 14px;
+          padding-left: 30px;
+        }
+        .sidebar__button:hover {
+          cursor: pointer;
+          background-color: rgba(236, 236, 237, 0.846);
+          border-bottom-right-radius: 15px;
+          border-top-right-radius: 15px;
+        }
+        .Selected {
+          background-color: var(--selected-backgound-color);
+          color: var(--selected-color);
+          font-weight: bold;
+          border-bottom-right-radius: 15px;
+          border-top-right-radius: 15px;
+        }
+        .Selected:hover {
+          background-color: var(--selected-backgound-color);
+          color: var(--selected-color);
+        }
+        .sidebar__button-text {
+          padding-left: 13px;
+        }
+        button:hover {
+          cursor: pointer;
+        }
+        .sidebar__unread-count {
+          padding-left: 120px;
+          color: rgb(156, 155, 155);
+          font-size: 12px;
+        }
+
+        /* Tooltip container */
+        .tooltip {
+          position: relative;
+          display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+          visibility: hidden;
+          width: 70px;
+          top: 10%;
+          left: 108%;
+          margin-left: -20px;
+          background-color: rgba(50, 50, 50, 0.8);
+          color: rgb(230, 230, 230);
+          font-size: 12px;
+          font-weight: bold;
+          text-align: center;
+          border-radius: 4px;
+          padding: 5px 0;
+          position: absolute;
+          z-index: 1;
+        }
+
+        .tooltip:hover .tooltiptext {
+          visibility: visible;
+          opacity: 1;
+        }
+      </style>
+      <div class="sidebar">
+        <button class="sidebar__button tooltip">
+          <slot name="icon" class="sidebar__button-icon"></slot>
+          <span class="sidebar__button-text"> </span>
+          <span class="sidebar__unread-count"> </span>
+          <span class="tooltiptext tooltip-buttontext"></span>
+        </button>
+      </div>
+    </template>
+  </body>
+</html>

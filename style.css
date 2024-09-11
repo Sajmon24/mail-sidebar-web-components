@@ -1,0 +1,109 @@
+:root {
+  --main-background-color: rgb(246, 248, 252);
+  --dark-gray: rgba(70, 70, 70);
+  --hover-color: rgba(236, 236, 237, 0.846);
+  --selected-backgound-color: rgb(211, 227, 253);
+  --selected-color: rgb(20 48 72);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--main-background-color);
+}
+/* Header */
+header {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+.header__logo {
+  font-size: 23px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--dark-gray);
+  text-decoration: none;
+}
+
+/* Main menu */
+.header__button-main-menu {
+  border: none;
+  background-color: var(--main-background-color);
+  color: var(--dark-gray);
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  font-size: 25px;
+}
+
+.header__button-main-menu:hover {
+  cursor: pointer;
+  background-color: var(--hover-color);
+}
+
+/* Button new email*/
+span {
+  padding-left: 10px;
+}
+
+.button-new-email {
+  margin: 10px;
+  border: none;
+  width: 130px;
+  height: 50px;
+  background-color: rgb(194, 231, 255);
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(46, 74, 95);
+}
+.button-new-email:hover {
+  cursor: pointer;
+  border-color: var(--dark-gray);
+  box-shadow: 3px 5px 15px 0px rgb(204, 204, 204);
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltiptext {
+  visibility: hidden;
+
+  text-align: center;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip-menutext {
+  width: 100px;
+  top: 105%;
+  left: 50%;
+  margin-left: -25px;
+  background-color: rgba(50, 50, 50, 0.8);
+  color: rgb(230, 230, 230);
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.tooltip-logotext {
+  width: 70px;
+  top: 105%;
+  left: 100%;
+  margin-left: -25px;
+  background-color: rgb(255, 255, 255);
+  color: var(--dark-gray);
+  border: 1px solid rgb(0, 0, 0);
+  font-size: 12px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
